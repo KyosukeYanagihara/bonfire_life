@@ -42,7 +42,7 @@ https://docs.google.com/spreadsheets/d/1SWliyOldDE-NnhpRVQt8rt-Vs7UmSBiTkzM5XwKm
   - device
   - コメント機能
 - カリキュラム外から
-  - jp_prefecture
+  - Pay.jp
 
 
 
