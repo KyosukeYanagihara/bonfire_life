@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_one :address
   has_one :account
-  accepts_nested_attributes_for :address, :account
+  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :account
 end

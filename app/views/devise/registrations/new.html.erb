@@ -44,6 +44,33 @@
     </div>
   <% end %>
 
+  <%= f.fields_for :account, Account.new do |f| %>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name_kana %>
+      <%= f.text_field :last_name_kana %>
+      <%= f.label :first_name_kana %>
+      <%= f.text_field :first_name_kana %>
+    </div>
+    <div class="field">
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday %>
+    </div>
+    <div class="field">
+      <%= f.label :sex %>
+      <%= f.select :sex, [["男性", "男性"], ["女性", "女性"], ["その他", "その他"]], include_blank: "選択して下さい" %>
+    </div>
+    <div class="field">
+      <%= f.label :contact_number %>
+      <%= f.text_field :contact_number %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

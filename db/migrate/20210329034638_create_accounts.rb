@@ -8,7 +8,7 @@ class CreateAccounts < ActiveRecord::Migration[5.2]
       t.string :last_name_kana, null: false
       t.datetime :birthday
       t.integer :sex
-      t.integer :contact_number, null: false
+      t.string :contact_number, null: false
       t.references :user, foreign_key: true
 
       t.timestamps

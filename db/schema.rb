@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_034638) do
     t.string "last_name_kana", null: false
     t.datetime "birthday"
     t.integer "sex"
-    t.integer "contact_number", null: false
+    t.string "contact_number", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
