@@ -11,10 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    super
     @user = User.new(user_params)
     @user.build_address
+    @user.build_account
     @user.save
-    super
   end
 
   # GET /resource/edit
@@ -65,5 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def user_params
     params.permit(:sign_up, keys: 
-    [address_attributes: [:city,:zipcode,:prefecture,:address1,:address2,]])
+    [address_attributes: [:city, :zipcode, :prefecture, :address1, :address2,],
+     account_attributes: [:firts_name, :last_name, :first_name_kana, :last_name_kana, :birthday, :sex, :contact_number,]])
+  end
 end
