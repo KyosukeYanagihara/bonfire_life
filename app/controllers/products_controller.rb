@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: %i[ show edit update ]
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -20,7 +20,22 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to product_path(@product.id), notice: "編集しました"
+    else
+      reder :edit
+    end
+  end
+
   private
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(:name, :description, :rental_price, :selling_price, :size,
                                     :storage_size, :weight, :stock, :brand,)
