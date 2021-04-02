@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_034638) do
+ActiveRecord::Schema.define(version: 2021_03_30_052657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,28 @@ ActiveRecord::Schema.define(version: 2021_03_29_034638) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.text "image", null: false
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_photos_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "rental_price", null: false
+    t.integer "selling_price", null: false
+    t.integer "size", null: false
+    t.integer "storage_size", null: false
+    t.integer "weight", null: false
+    t.integer "stock", default: 1
+    t.string "brand"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,4 +83,5 @@ ActiveRecord::Schema.define(version: 2021_03_29_034638) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "addresses", "users"
+  add_foreign_key "photos", "products"
 end
