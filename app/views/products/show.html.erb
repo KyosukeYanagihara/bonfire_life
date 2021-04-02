@@ -1,4 +1,7 @@
 <h1>詳細画面</h1>
+<% @product.photos.each do |photo| %>
+    <p><%= image_tag photo.image.url, class: "image" %></p>
+<% end %>
 <p><%= @product.name %></p>
 <p><%= @product.description %></p>
 <p><%= @product.size %></p>

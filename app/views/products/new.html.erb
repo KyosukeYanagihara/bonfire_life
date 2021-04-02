@@ -10,7 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.fields_for :photos do |image| %>
+      <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %>
+      <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %>
+      <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %>
+      <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %>
+      <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %>
+  <% end %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>

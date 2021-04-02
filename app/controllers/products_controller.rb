@@ -9,13 +9,18 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.photos.build
   end
   
   def create
     @product = Product.new(product_params)
     if @product.save
+      params[:product_photos][:image].each do |image|
+        @product.photos.create(image: image, product_id: @product.id)
+      end
       redirect_to products_path, notice: "作成しました"
     else
+      @product.photos.build
       render :new
     end
   end
@@ -43,6 +48,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :rental_price, :selling_price, :size,
-                                    :storage_size, :weight, :stock, :brand,)
+                                    :storage_size, :weight, :stock, :brand, photos_attributes: [:image])
   end
 end
