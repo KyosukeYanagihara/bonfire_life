@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_one :address
   has_one :account
-  has_many :products
   has_many :favorites, dependent: :destroy
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :account

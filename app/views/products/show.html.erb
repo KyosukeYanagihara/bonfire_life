@@ -8,3 +8,8 @@
 <p><%= @product.storage_size %></p>
 <p><%= @product.rental_price %></p>
 <p><%= @product.selling_price %></p>
+<% if !Favorite.exists?(user_id: current_user.id, product_id: @product.id) %>
+  <%= link_to "お気に入り登録", product_favorites_path(@product.id), method: :post %>
+<% else %>
+  <%= link_to "お気に入り削除", product_favorites_path(product_id: @product.id, id: @product.favorites[0].id), method: :delete %>
+<% end %>
