@@ -2,10 +2,10 @@
   <% reviews.each do |review| %>
     <% if review.id.present? %>
       <li>
+        <div class="review-comment" id ="this_review_<%= review.id %>"></div>
         <p><%= review.user.account.first_name %></p>
-      </li>
-      <li>
         <p><%= review.comment %></p>
+        <p><%= link_to "コメント編集", edit_product_review_path(product, review), remote: true %></p>
       </li>
     <% end %>
   <% end %>

@@ -1,0 +1,2 @@
+$("#this_review_<%= @review.id %>").replaceWith("<%= j render 'reviews/edit', product: @product, review: @review %>");
+$("#notice").html("<%= j flash[:notice] %>");
