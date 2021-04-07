@@ -8,8 +8,17 @@
 <p><%= @product.storage_size %></p>
 <p><%= @product.rental_price %></p>
 <p><%= @product.selling_price %></p>
-<% if !Favorite.exists?(user_id: current_user.id, product_id: @product.id) %>
-  <%= link_to "お気に入り登録", product_favorites_path(@product.id), method: :post %>
-<% else %>
-  <%= link_to "お気に入り削除", product_favorites_path(product_id: @product.id, id: @product.favorites[0].id), method: :delete %>
-<% end %>
+<div>
+  <% if !Favorite.exists?(user_id: current_user.id, product_id: @product.id) %>
+    <%= link_to "お気に入り登録", product_favorites_path(@product.id), method: :post %>
+  <% else %>
+    <%= link_to "お気に入り削除", product_favorites_path(product_id: @product.id, id: @product.favorites[0].id), method: :delete %>
+  <% end %>
+</div>
+<div id="reviews_area">
+    <%= render partial: 'reviews/index', locals: { reviews: @reviews, product: @product } %>
+  </div>
+  <%= render partial: 'reviews/form', locals: { review: @review, product: @product } %>
+  <%= link_to '編集', edit_product_path(@product) %> |
+  <%= link_to '戻る', products_path %>
+</div>
