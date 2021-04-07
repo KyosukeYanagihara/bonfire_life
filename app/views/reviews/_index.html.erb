@@ -5,9 +5,11 @@
         <div class="review-comment" id ="this_review_<%= review.id %>"></div>
         <p><%= review.user.account.first_name %></p>
         <p><%= review.comment %></p>
-        <p><%= link_to "編集", edit_product_review_path(product, review), remote: true %></p>
-        <p><%= link_to "削除", product_review_path(review.product_id, review.id), method: :delete, remote: true,
-                                        data: { confirm: "本当に削除しますか?"} %></p>
+        <% if current_user.present? && current_user == review.user %>
+          <p><%= link_to "編集", edit_product_review_path(product, review), remote: true %></p>
+          <p><%= link_to "削除", product_review_path(review.product_id, review.id), method: :delete, remote: true,
+                                          data: { confirm: "本当に削除しますか?"} %></p>
+        <% end %>
       </li>
     <% end %>
   <% end %>
