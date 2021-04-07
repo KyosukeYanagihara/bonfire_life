@@ -33,6 +33,15 @@ class ReviewsController < ApplicationController
       end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    respond_to do |format|
+      flash.now[:notice] = '削除されました'
+      format.js { render :index }
+    end
+  end
+
   private
 
   def review_params
