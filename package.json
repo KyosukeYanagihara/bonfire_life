@@ -1,5 +1,7 @@
 {
   "name": "bonfire_life",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }

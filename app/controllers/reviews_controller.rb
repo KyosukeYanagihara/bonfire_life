@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to product_path(@product) }
+        format.js { render :index }
       else
         format.html { redirect_to product_path(@product), notice: '投稿できませんでした...' }
       end
