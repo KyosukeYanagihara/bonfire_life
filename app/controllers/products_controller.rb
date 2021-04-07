@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @reviews = @product.reviews
+    @review = @product.reviews.build
   end
 
   def new
