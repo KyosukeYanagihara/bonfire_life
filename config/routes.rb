@@ -5,8 +5,15 @@ Rails.application.routes.draw do
     resources :reviews
   end
   devise_for :users
+  resources :carts do
+    collection do
+      get 'my_cart'
+      post 'add_item'
+      post 'update_item'
+      delete 'delete_item'
+    end
+  end
   root 'tops#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
