@@ -9,6 +9,7 @@
 
   <%= f.submit "検索" %>
 <% end %>
+<p><%= sort_link(@q, :rental_price) %></p>
 <%= link_to "新規作成", new_product_path %>
 <% @products.each do |product| %>
   <div>
