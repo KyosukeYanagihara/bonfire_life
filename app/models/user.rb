@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :cart
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :orders, dependent: :destroy
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :account
 end
