@@ -12,11 +12,9 @@ class OrdersController < ApplicationController
     render :new if @order.invalid?
     @cart_items = current_cart.cart_items
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-    # binding.pry
   end
 
-  def create
-    # binding.pry    
+  def create  
     @order = current_user.orders.build(order_params)
     @cart_items = current_cart.cart_items
     @cart_items.each do |item|
@@ -33,7 +31,6 @@ class OrdersController < ApplicationController
   private
   
   def order_params
-    # binding.pry 
     params.require(:order).permit(:rental_start, :user_id)
   end
 end
