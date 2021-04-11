@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_082021) do
+ActiveRecord::Schema.define(version: 2021_04_11_083600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 2021_04_11_082021) do
     t.string "size", null: false
     t.integer "storage_size", null: false
     t.integer "weight", null: false
-    t.integer "stock", default: 1
     t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
