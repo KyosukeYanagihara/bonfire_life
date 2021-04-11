@@ -3,6 +3,9 @@
 <div>
   <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
   <%= order.id %>
+  <% order.order_items.each do |item| %>
+    <%= item.product.name %>
+  <% end %>
   <%= order.status %>
   <%= order.price %>
 </div>
