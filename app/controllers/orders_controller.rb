@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
   def create  
     @order = current_user.orders.build(order_params)
     @cart_items = current_cart.cart_items
+    @order.price = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
     @cart_items.each do |item|
       @order_item = @order.order_items.build
       @order_item.product_id = item.product_id
