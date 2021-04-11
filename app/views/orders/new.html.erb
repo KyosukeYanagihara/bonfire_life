@@ -1,0 +1,12 @@
+<%= form_with(model: @order, local: true, url: confirm_orders_path) do |f| %>
+  <p>レンタル開始日の選択</p>
+  <div>
+  <%= f.label :rental_start %>
+  <%= f.date_field :rental_start %>
+  <% if @order.errors.include?(:rental_start) %>
+    <p style="color: red;"><%= @order.errors.full_messages_for(:rental_start).first %>
+  <% end %>
+  </div>
+  <p><%= f.submit '確認画面へ' %></p>
+<% end %>
+<%= link_to "カート", my_cart_carts_path %>

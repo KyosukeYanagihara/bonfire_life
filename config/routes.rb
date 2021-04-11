@@ -14,6 +14,12 @@ Rails.application.routes.draw do
     end
   end
   root 'tops#index'
+  resources :orders do
+    collection do
+      post :confirm
+      get :complete
+    end
+  end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
