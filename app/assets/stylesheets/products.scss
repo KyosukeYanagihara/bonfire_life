@@ -28,8 +28,25 @@
  }
 
  .photo_box {
-     width: 250px;
-     height: 250px;
+     width: 95%;
+     height: 750px;
+     .main_image {
+        width: 100%;
+        border: solid 1px rgb(112, 112, 112);
+     }
+     .image_list {
+        width: 100px;
+        margin: 10px;
+        border: solid 1px rgb(110, 110, 110);
+     }
+     .image-flex {
+         display: flex;
+         justify-content: center;
+         flex-wrap: wrap;
+        //  flex-direction: row;
+        //  align-content: space-between;
+         padding: 0;
+     }
  }
 
  .search {
@@ -39,3 +56,15 @@
      padding: 30px;
      grid-column: 2 / 3;
  }
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px #dee2e6;
+    .tr {
+        border-top: solid 1px #dee2e6;
+        }
+    td {
+        border: solid 1px #dee2e6;
+    }
+  }

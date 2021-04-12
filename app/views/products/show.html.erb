@@ -1,29 +1,71 @@
-<h1>詳細画面</h1>
-<% @product.photos.each do |photo| %>
-    <p><%= image_tag photo.image.url, class: "image" %></p>
-<% end %>
-<p><%= @product.name %></p>
-<p><%= @product.description %></p>
-<p><%= @product.size %></p>
-<p><%= @product.storage_size %></p>
-<p><%= @product.rental_price %></p>
-<p><%= @product.selling_price %></p>
-<div>
-  <% if !Favorite.exists?(user_id: current_user.id, product_id: @product.id) %>
-    <%= link_to "お気に入り登録", product_favorites_path(@product.id), method: :post %>
-  <% else %>
-    <%= link_to "お気に入り削除", product_favorites_path(product_id: @product.id, id: @product.favorites[0].id), method: :delete %>
-  <% end %>
+<div class="row margin-top">
+  <div class="col-sm-1"></div>
+    <div class="col-sm-5">
+      <div class="photo_box">
+        <ul class="photo_innner">
+          <li>
+            <%= image_tag @product.photos[0].image.url, class: "main_image" %>
+            <ul class="image-flex">
+              <% @product.photos.each do |photo| %>
+                <li><%= image_tag photo.image.url, class: "image_list" %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="description">
+        <h2><%= @product.name %></h2>
+        <br/>
+        <p><%= @product.description %></p>
+        <br/>
+        <p>参考販売価格<%= @product.selling_price %>円</p>
+        <h3>レンタル価格<%= @product.rental_price %>円(税込)</h3>
+        <br/>
+        <%= form_with(url: add_item_carts_url, method: :post, local: true) do |f| %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <p>数量：<%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], value: 1 %></p>
+          <%= f.submit "カートに入れる", class: "btn btn-outline-dark m-10" %>
+        <% end %>
+          <% if !Favorite.exists?(user_id: current_user.id, product_id: @product.id) %>
+            <%= link_to "お気に入り登録", product_favorites_path(@product.id), method: :post, class: "btn btn-outline-primary m-10" %>
+          <% else %>
+            <%= link_to "お気に入り削除", product_favorites_path(product_id: @product.id, id: @product.favorites[0].id), method: :delete, class: "btn btn-outline-danger m-10" %><br/>
+          <% end %>
+          <br/>
+        <table class="table">
+        <p>商品仕様</p>
+          <tbody>
+            <tr class="tr">
+              <td style="width: 30%;">製品寸法</td>
+              <td style="width: 70%;"><%= @product.size %></td>
+            </tr>
+            <tr class="tr">
+              <td style="width: 30%;">重量</td>
+              <td style="width: 70%;">約<%= @product.weight %>kg</td>
+            </tr>
+            <tr class="tr">
+              <td style="width: 30%;">使用上の注意</td>
+              <td style="width: 70%;">ご使用時はグローブなどを装着したうえで、
+              組立や片付けを行ってください。また焚火台ご使用時及び
+              使用直後は本体及び付属品は大変熱くなります。火傷等にご注意願います
+              。高温の状態の焚き火台及びゴトクに水をかける等の行為を行いますと、
+              歪みや変形の原因となりますのでお控えください。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <div class="col-sm-1 h-700"></div>
 </div>
-<%= form_with(url: add_item_carts_url, method: :post, local: true) do |f| %>
-    <%= f.hidden_field :product_id, value: @product.id %>
-    <%= f.number_field :quantity, value: 1 %>
-    <%= f.submit "カートに入れる" %>
-<% end %>
-<div id="reviews_area">
-    <%= render partial: 'reviews/index', locals: { reviews: @reviews, product: @product } %>
+<div class="row">
+  <div class="col-sm-1">
+    <div id="reviews_area">
+      <%= render partial: 'reviews/index', locals: { reviews: @reviews, product: @product } %>
+    </div>
+    <%= render partial: 'reviews/form', locals: { review: @review, product: @product } %>
+    <%= link_to '編集', edit_product_path(@product) %> |
+    <%= link_to '戻る', products_path %>
   </div>
-  <%= render partial: 'reviews/form', locals: { review: @review, product: @product } %>
-  <%= link_to '編集', edit_product_path(@product) %> |
-  <%= link_to '戻る', products_path %>
 </div>

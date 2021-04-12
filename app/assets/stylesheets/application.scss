@@ -16,7 +16,7 @@
  @import "bootstrap";
 
  #container {
-     color: rgb(0, 0, 0);
+     background: rgb(252, 252, 252);
      display: flex;
      justify-content: center;
      text-align: center;
@@ -25,5 +25,16 @@
         text-decoration: none;
      }
  }
+ .margin-top {
+     margin-top: 80px;
+ }
+ a {
+    color: rgb(0, 0, 0); 
+ }
 
- 
+ ul li {
+    list-style: none;
+  }
+ .m-10 {
+     margin: 10px;
+ }
