@@ -15,8 +15,15 @@
  */
  @import "bootstrap";
 
-
- .image {
-     height: 200px;
-     width: 200px;
+ #container {
+     color: rgb(0, 0, 0);
+     display: flex;
+     justify-content: center;
+     text-align: center;
+     display: inline-block;
+     &:hover {
+        text-decoration: none;
+     }
  }
+
+ 

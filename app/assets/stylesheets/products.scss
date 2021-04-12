@@ -1,0 +1,41 @@
+.grid {
+    display: grid;
+    grid-template-columns: 150px 235px 1fr 90px;
+ }
+
+ .image {
+     height: 200px;
+     width: 200px;
+ }
+
+ .index_photo {
+     width: 250px;
+     &:hover {
+         opacity: 0.5;
+     }
+ }
+ 
+ .flex {
+     display: flex;
+     flex-wrap: wrap;
+     width: 900px;
+ }
+
+ .index_container {
+     width: 300px;
+     height: 350px;
+     justify-content: center;
+ }
+
+ .photo_box {
+     width: 250px;
+     height: 250px;
+ }
+
+ .search {
+     border: solid 1px #000000;
+     width: 235px;
+     height: 420px;
+     padding: 30px;
+     grid-column: 2 / 3;
+ }
