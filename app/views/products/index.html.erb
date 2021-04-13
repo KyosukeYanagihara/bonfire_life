@@ -1,6 +1,7 @@
   <h2>商品一覧</h2>
-<div class="grid">
-  <div class="search">
+<div class="row">
+<div class="col-sm-1"></div>
+  <div class="search col-sm-2">
     <p>商品検索</p>
     <%= search_form_for @q do |f| %>
       <p><%= f.search_field :brand_or_name_cont, placeholder:"キーワード検索" %></p>
@@ -12,14 +13,15 @@
     <p>ソート</p>
     <p><%= sort_link(@q, :rental_price, "金額順") %></p>
   </div>
-  <div class="flex">
+  <div class="flex col-sm-8">
   <% @products.each do |product| %>
-    <div class="index_container">
+    <div class="index_container ">
       <%= link_to (image_tag product.photos[0].image.url, class: "index_photo"), product_path(product.id) %>
       <div><%= link_to product.name, product_path(product.id) %></div>
       <div>レンタル料金<%= product.rental_price %>円<span class="tax">(税込)</span></div>
     </div>
   <% end %>
   </div>
+  <div class="col-sm-1"></div>
 </div>
 
