@@ -4,26 +4,37 @@
     <title>BonfireLife</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= link_to "商品一覧", products_path %>
-      <%= link_to "商品登録", new_product_path %>
-      <%= link_to "注文一覧", orders_path %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-  </div>
+    <header>
+      <div class="logo">
+        <div>
+          <%= link_to image_tag("logo.png", class: "logo-image"), root_path %>
+          <div class="logo_font">Bonfire Life</div>
+        </div>
+      </div>
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to "商品一覧", products_path %>
+          <%= link_to "商品登録", new_product_path %>
+          <%= link_to "注文一覧", orders_path %>
+        <% else %>
+          <%= link_to "新規登録", new_user_registration_path %>
+          <%= link_to "ログイン", new_user_session_path %>
+        <% end %>
+      </div>
+    </header>
     <div id="container">
       <%= yield %>
     </div>
+    <footer>
+      <div>Copyright ©2021 Bonfire Life INC</div>
+    </footer>
   </body>
 </html>
