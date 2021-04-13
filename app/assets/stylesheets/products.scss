@@ -74,13 +74,10 @@
 .product_form {
     display: flex;
     justify-content: center;
-    align-items: stretch;
     border: 1px solid #aaa;
-    text-align: center;
+    margin: 0 auto;
     table {
         width: 70%;
-        // margin-left: auto;
-        // margin-right: auto;
-        margin-left: auto 0;
+        // margin: 0 auto;
     }
 }

@@ -45,6 +45,7 @@
  .m-10 {
      margin: 10px;
  }
+
 header {
     height: 130px;
     display: flex;
@@ -67,6 +68,15 @@ header {
             width: 100px;
         }
     }
+}
+
+footer {
+    height: 200px;
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
