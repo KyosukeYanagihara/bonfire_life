@@ -45,5 +45,28 @@
  .m-10 {
      margin: 10px;
  }
+header {
+    height: 130px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #fff;
+    border-bottom: solid 1px rgb(158, 158, 158);
+    margin-bottom: 30px;
+    .logo {
+        &:hover {
+            opacity: 0.3;
+        }
+        .logo_font {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            position: absolute;
+            top: 84px;
+        }
+        .logo-image {
+            width: 100px;
+        }
+    }
+}
 
 
