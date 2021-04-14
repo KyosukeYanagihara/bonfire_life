@@ -56,7 +56,9 @@
      width: 235px;
      height: 420px;
      padding: 30px;
-     grid-column: 2 / 3;
+     .search_form {
+         width: 80%
+     }
  }
 
 .table {
@@ -71,13 +73,44 @@
     }
   }
 
-.product_form {
+.new_product {
     display: flex;
     justify-content: center;
-    border: 1px solid #aaa;
-    margin: 0 auto;
-    table {
-        width: 70%;
-        // margin: 0 auto;
+    .product_form {
+        border: 1px solid #aaa;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 60px;
+        padding-bottom: 30px;
+        background-color: #ffffff;
+        .form_btn {
+            margin: 30px;
+            width: 50%;
+        }
+        .form_group {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            // width: 100%;
+            width: 600px;
+            span, label {
+                float: left;
+            }
+            textarea {
+                width: 100%;
+                height: 200px;
+            }
+            textarea:required {
+                color: #630015;
+                border-color: #c20c33;
+                background-color: #ffd9e1;
+            }
+            input {
+                width: 100%;
+            }
+            input:invalid {
+                border: solid 1px red;
+              }
+        }
     }
 }

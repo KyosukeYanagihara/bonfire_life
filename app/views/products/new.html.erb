@@ -1,63 +1,64 @@
-<div class="center">
-  <%= form_with(model: @product, local: true) do |f| %>
-  <div class="product_form">
-    <table>
-      <tbody>
-        <tr>
-          <%= f.fields_for :photos do |image| %>
-          <td></td>
-          <td><%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %></td>
-        </tr>
-        <tr>
-          <td>画像</td>
-          <td><%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %></td>
-          <% end %>
-        </tr>
-        <tr>
-          <td><%= f.label :name %></td>
-          <td><%= f.text_field :name %></td>
-        </tr>
-        <tr>
-          <td> <%= f.label :description %></td>
-          <td><%= f.text_field :description %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :rental_price %></td>
-          <td> <%= f.text_field :rental_price %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :selling_price %></td>
-          <td><%= f.text_field :selling_price %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :size %></td>
-          <td><%= f.text_field :size %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :weight %></td>
-          <td><%= f.text_field :weight %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :brand %></td>
-          <td><%= f.text_field :brand %></td>
-        </tr>
-        <tr>
-          <td><%= f.submit %></td>
-        </tr>
-      </tbody>
-    </table>
+<div class="row  new_product">
+  <div class="product_form col-sm-6">
+    <%= form_with(model: @product, local: true) do |f| %>
+      <div class="form_group">
+        <%= f.fields_for :photos do |image| %>
+          <div><span class='mandatory'></span> <%= f.label :image, "商品画像" %></div>
+          <div><span>最大5枚までアップロードできます</span></div>
+          <div>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][0]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][1]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][2]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][3]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][4]' %><br/>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="form_group">
+        <div><span class='mandatory'></span><%= f.label :name, "商品名" %></div>
+        <div class="is-invalid"><%= f.text_field :name %></div>
+        <div><span style="color: red;"><%= @product.errors.full_messages_for(:name).first %></span></div>
+      </div>
+
+      <div class="form_group">
+        <div><span class='mandatory'></span><%= f.label :description, "商品説明" %></div>
+        <div><%= f.text_area :description %></div>
+        <div><span style="color: red;"><%= @product.errors.full_messages_for(:description).first %></span></div>
+      </div>
+
+      <div class="form_group">
+        <div><span class='mandatory'></span><%= f.label :rental_price, "レンタル料金" %></div>
+        <div><%= f.text_field :rental_price, placeholder:"例：999" %></div>
+        <div><span style="color: red;"><%= @product.errors.full_messages_for(:rental_price).first %></span></div>
+      </div>
+
+      <div class="form_group">
+        <div><span class='mandatory'></span><%= f.label :selling_price, "参考販売価格" %></div>
+        <div><%= f.text_field :selling_price, placeholder:"例：999" %></div>
+        <div><span style="color: red;"><%= @product.errors.full_messages_for(:selling_price).first %></span></div>
+      </div>
+
+      <div class="form_group">
+        <div><span class='mandatory'></span><%= f.label :size, "製品寸法" %></div>
+        <div><%= f.text_field :size, placeholder:"例：約W32×D32×H32cm" %></div>
+        <div><span style="color: red;"><%= @product.errors.full_messages_for(:size).first %></span></div>
+      </div>
+
+      <div class="form_group">
+        <div><span class='mandatory'></span><%= f.label :weight, "重量" %></div>
+        <div><%= f.text_field :weight, placeholder:"例：9.9" %></div>
+        <div><span style="color: red;"><%= @product.errors.full_messages_for(:weight).first %></span></div>
+      </div>
+
+      <div class="form_group">
+        <div><span class='any'></span><%= f.label :brand, "検索用（ブランド名など）" %></div>
+        <div><%= f.text_field :brand %></div>
+      </div>
+
+        <%= f.submit "作成", class: "form_btn btn btn-outline-danger" %><br/>
+        <%= link_to "戻る", products_path, class: "form_btn" %>
+    <% end %>
   </div>
-  <% end %>
 </div>
+ 

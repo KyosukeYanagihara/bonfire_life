@@ -22,11 +22,12 @@
  }
 
  #container {
+     min-height: 1000px;
      background-color: rgb(252, 252, 252);
-     display: flex;
-     justify-content: center;
+    //  display: flex;
+    //  justify-content: center;
      text-align: center;
-     display: inline-block;
+    //  display: inline-block;
      &:hover {
         text-decoration: none;
      }
@@ -49,7 +50,6 @@
 header {
     height: 130px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     background-color: #fff;
     border-bottom: solid 1px rgb(158, 158, 158);
@@ -78,5 +78,39 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+.mandatory::after {
+    content: "必須";
+    background-color: #f06630;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 10px;
+    padding: 3px 7px;
+    margin: 0px 5px 3px 5px;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+  }
+
+.any::after {
+    content: "任意";
+    background-color: #3f3b39;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 10px;
+    padding: 3px 7px;
+    margin: 0px 5px 3px 5px;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+  }
 
 
