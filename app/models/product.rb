@@ -5,4 +5,11 @@ class Product < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :order_items, dependent: :destroy
   accepts_nested_attributes_for :photos
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :size, presence: true
+  validates :weight, presence: true
+  validates :rental_price, presence: true
+  validates :selling_price, presence: true
 end
