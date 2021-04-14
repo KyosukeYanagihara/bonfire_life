@@ -15,10 +15,10 @@ ja:
     attributes:
       account:
         admin: 管理者
-        first_name: 名前
-        last_name: 苗字
-        first_name_kana: 名前（フリガナ）
-        last_name_kana: 苗字の（フリガナ）
+        first_name: 名
+        last_name: 姓
+        first_name_kana: メイ
+        last_name_kana: セイ
         birthday: 誕生日
         sex: 性別
         contact_number: 電話番号
