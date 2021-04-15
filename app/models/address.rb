@@ -1,6 +1,11 @@
 class Address < ApplicationRecord
   belongs_to :user
 
+  validates :postcode, presence: true
+  validates :city, presence: true
+  validates :address1, presence: true
+  validates :prefecture_code, presence: true
+
   include JpPrefecture
   jp_prefecture :prefecture_code
 
