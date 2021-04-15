@@ -3,7 +3,7 @@
   <h3>お届け予定日</h3>
     <%= @order.rental_start %>
   <h3>お届け先</h3>
-    <%= @order.user.address.prefecture %><%= @order.user.address.city %><%= @order.user.address.address1 %>
+    <%= @order.user.address.prefecture_name %><%= @order.user.address.city %><%= @order.user.address.address1 %>
   <h3>ご注文内容</h3>
   <% @cart_items.each do |item| %>
     <p><%= item.product.name %><%= item.product.rental_price * item.quantity %>円</p>

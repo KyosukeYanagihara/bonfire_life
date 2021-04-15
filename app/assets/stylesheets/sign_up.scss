@@ -1,0 +1,53 @@
+.new_user{
+    display: flex;
+    justify-content: center;
+    .user_form {
+        display: flex;
+        justify-content: center;
+        font-size: 13px;
+        margin: 0;
+        table {
+            border-top: solid 1px #aaa;
+            border-left: solid 1px #aaa;
+            background-color: rgb(255, 255, 255);
+        }
+        input {
+            height: 30px;
+        }
+        select {
+            height: 28px;
+        }
+        td {
+            padding: 8px;
+        }
+        tr td:nth-of-type(1) {
+            border-top: solid 1px #aaa;
+            width: 55px;
+        }
+        tr td:nth-of-type(2) {
+            border-bottom: solid 1px #aaa;
+            width: 180px;
+        }
+        tr td:nth-of-type(3) {
+            border: solid 1px #aaa;
+            width: 500px;
+            // display: flex;
+            // justify-content: flex-start;
+            // flex-direction: column;
+        }
+        tr:nth-child(4) {
+            input {
+                width: 300px;
+            }
+        }
+        tr:nth-child(6) {
+            input {
+                width: 270px;
+            }
+        }
+        tr:nth-child(10) {
+            border: solid 1px rgb(252, 252, 252);
+            background-color: rgb(252, 252, 252);
+        }
+    }
+}

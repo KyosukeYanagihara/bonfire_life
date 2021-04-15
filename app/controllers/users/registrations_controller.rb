@@ -66,7 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def user_params
     params.permit(:sign_up, keys: 
-    [address_attributes: [:city, :zipcode, :prefecture, :address1, :address2,],
+    [address_attributes: [:city, :postcode, :prefecture_code, :address1, :address2,],
      account_attributes: [:firts_name, :last_name, :first_name_kana, :last_name_kana, :birthday, :sex, :contact_number,]])
   end
 end

@@ -1,0 +1,49 @@
+ja:
+  activerecord:
+    models:
+      account: ユーザー詳細情報
+      address: 住所
+      cart_item: カート
+      cart: カート
+      photo: 商品画像
+      order_item: 注文した商品
+      order: 注文
+      user: ユーザー
+      product: 商品
+      review: レビュー
+      favorite: お気に入り
+    attributes:
+      account:
+        admin: 管理者
+        first_name: 名
+        last_name: 姓
+        first_name_kana: メイ
+        last_name_kana: セイ
+        birthday: 生年月日
+        sex: 性別
+        contact_number: 電話番号
+      address:
+        postcode: 郵便番号
+        prefecture_name: 都道府県
+        city: 市区町村
+        address1: 番地
+        address2: 建物名
+      cart_item:
+        quantity: 数量
+      order_items:
+        quantity: 数量
+      order:
+        status: ご注文状況
+        rental_start: レンタル開始日
+      photo:
+        image: 商品画像
+      product:
+        name: 商品名
+        description: 詳細情報
+        rental_price: レンタル価格
+        selling_price: 参考販売価格
+        size: 製品寸法
+        weight: 重量
+        brand: その他
+      review:
+        comment: レビュー内容
