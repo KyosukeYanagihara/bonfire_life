@@ -19,6 +19,7 @@ gem "mini_magick"
 gem 'ransack'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'jp_prefecture'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
