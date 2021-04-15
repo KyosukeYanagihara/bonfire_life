@@ -23,11 +23,11 @@ ja:
         sex: 性別
         contact_number: 電話番号
       address:
-        zipcode: 郵便番号
-        prefecture: 都道府県
-        city: 市
-        address1: 市町村番地など
-        address2: 建物名など
+        postcode: 郵便番号
+        prefecture_name: 都道府県
+        city: 市区町村
+        address1: 番地
+        address2: 建物名
       cart_item:
         quantity: 数量
       order_items:
