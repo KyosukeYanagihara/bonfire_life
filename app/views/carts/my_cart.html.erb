@@ -1,4 +1,29 @@
-<h2>カート内アイテム</h2>
-<%= render partial: "carts/cart_item", collection: @cart_items, as: "cart_item"%>
-<h2><%= "合計：#{@total}円" %></h2>
-<%= link_to "レンタル手続きへ", new_order_path %>
+<div class="row cart_item">
+  <div class="col-sm-8">
+    <div class="mb-5"><h2>カート内アイテム</h2></div>
+    <div class="mb-4"><span style="color: red;">※『ご利用開始日』、『ご利用期間』、『用品保険の選択』はレンタル手続き中にお選びいただけます。</span></div>
+      <div class="item_list">
+        <table>
+          <tbody>
+            <tr>
+              <td>用品名</td>
+              <td>用品写真</td>
+              <td>単価</td>
+              <td>数量</td>
+              <td>削除</td>
+              <td>計</td>
+            </tr>
+            <%= render partial: "carts/cart_item", collection: @cart_items, as: "cart_item"%>
+            <tr>
+              <td colspan="5">合計</td>
+              <td><%= @total %>円</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="link mt-3">
+        <%= link_to "用品選択を続ける", products_path, class: "btn btn-outline-danger" %>
+        <%= link_to "レンタル手続きへ", new_order_path, class: "btn btn-outline-primary" %>
+      </div>
+  </div>
+</div>  
