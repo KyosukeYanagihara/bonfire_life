@@ -2,17 +2,18 @@
   <div class="product_form col-sm-6">
     <%= form_with(model: @product, local: true) do |f| %>
       <div class="form_group">
-        <%= f.fields_for :photos do |image| %>
           <div><span class='mandatory'></span> <%= f.label :image, "商品画像" %></div>
           <div><span>最大5枚までアップロードできます</span></div>
           <div>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][0]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][1]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][2]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][3]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][4]' %><br/>
-          </div>
+        <%= f.fields_for :photos do |image| %>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
+            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
         <% end %>
+        <div><span style="color: red;"><%= @product.errors.full_messages_for(:image).first %></span></div>
+          </div>
       </div>
 
       <div class="form_group">
