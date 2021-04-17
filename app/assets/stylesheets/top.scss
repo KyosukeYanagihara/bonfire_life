@@ -1,0 +1,39 @@
+.top {
+    .letter {
+        font-size: 2vw;
+    }
+    .top_image {
+        width: 100%;
+        position: relative;
+    }
+    .top_letter {
+        text-align: left;
+        position: absolute;
+        top: 80%;
+        left: 55%;
+        color: rgb(255, 255, 255);
+        font-size: 4vw;
+    }
+    .top_main {
+        display: flex;
+        justify-content: center;
+        margin: 2em;
+        .row_image {
+            max-width: 550px;
+            width:  100%;
+        }
+        .main_letter {
+            text-align: left;
+        }
+        .top_link {
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            padding: 18px 10px;
+            &:hover {
+                opacity: 0.6;
+                text-decoration: none;
+            }
+        }
+    }
+}
