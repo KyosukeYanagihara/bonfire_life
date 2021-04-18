@@ -1,17 +1,26 @@
 <%= form_with(modle: @order, locul: true, url: {action: 'create'}, scope: :order) do |f| %>
   <%= f.hidden_field :rental_start, value: @order.rental_start.strftime('%Y-%m-%d') %>
+  <%= f.hidden_field :rental_period, value: @order.rental_period %>
+  <%= f.hidden_field :insurance_fee, value: @order.insurance_fee %>
+  <%= f.hidden_field :price, value: @order.price %>
   <h3>お届け予定日</h3>
     <%= @order.rental_start %>
+  <h3>利用期間</h3>
+    <%= @order.rental_period %>
+  <h3>保険内容</h3>
+    <%= @order.insurance_fee %>
   <h3>お届け先</h3>
     <%= @order.user.address.prefecture_name %><%= @order.user.address.city %><%= @order.user.address.address1 %>
   <h3>ご注文内容</h3>
   <% @cart_items.each do |item| %>
     <p><%= item.product.name %><%= item.product.rental_price * item.quantity %>円</p>
   <% end %>
-  <h2><%= "合計：#{@total}円" %></h2>
+  <h2><%= "合計：#{@order.price}円" %></h2>
   <p><%= f.submit '仮予約する' %></p>
 <% end %>
 <%= form_with(model: @order, url: new_order_path, local:true, method: :get) do |f| %>
+  <%= f.hidden_field :rental_start %>
+  <%= f.hidden_field :rental_period %>
   <%= f.hidden_field :rental_start %>
   <%= f.submit "戻る", name: "back" %>
 <% end %>
