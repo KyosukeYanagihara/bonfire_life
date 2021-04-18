@@ -7,6 +7,20 @@
     <p style="color: red;"><%= @order.errors.full_messages_for(:rental_start).first %>
   <% end %>
   </div>
+  <div>
+  <%= f.label :rental_period %>
+  <%= f.select :rental_period, [["2泊3日", "2泊3日"], ["3泊4日", "3泊4日"], ["4泊5日", "4泊5日"], ["4泊5日", "4泊5日"], ["4泊5日", "4泊5日"]], include_blank: "選択して下さい" %>
+  <% if @order.errors.include?(:rental_period) %>
+    <p style="color: red;"><%= @order.errors.full_messages_for(:rental_period).first %>
+  <% end %>
+  </div>
+  <div>
+  <%= f.label :insurance_fee %>
+  <%= f.select :insurance_fee, [["保険なし", "保険なし"], ["用品保険1000", "用品保険1000"], ["用品保険2000", "用品保険2000"], ["用品保険3000", "用品保険3000"]], include_blank: "選択して下さい" %>
+  <% if @order.errors.include?(:insurance_fee) %>
+    <p style="color: red;"><%= @order.errors.full_messages_for(:insurance_fee).first %>
+  <% end %>
+  </div>
   <p><%= f.submit '確認画面へ' %></p>
 <% end %>
 <%= link_to "カート", my_cart_carts_path %>

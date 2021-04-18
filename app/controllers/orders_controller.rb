@@ -16,13 +16,14 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
     render :new if @order.invalid?
     @cart_items = current_cart.cart_items
-    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+    @order.price = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price } + 
+                    @order.rental_period_to_quantify(@order.rental_period) +
+                    @order.insurance_fee_to_quantify(@order.insurance_fee)
   end
 
   def create  
     @order = current_user.orders.build(order_params)
     @cart_items = current_cart.cart_items
-    @order.price = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
     @cart_items.each do |item|
       @order_item = @order.order_items.build
       @order_item.product_id = item.product_id
@@ -37,6 +38,6 @@ class OrdersController < ApplicationController
   private
   
   def order_params
-    params.require(:order).permit(:rental_start, :user_id)
+    params.require(:order).permit(:rental_start, :user_id, :rental_period, :insurance_fee, :price)
   end
 end
