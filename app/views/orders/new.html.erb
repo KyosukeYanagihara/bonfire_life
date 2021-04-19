@@ -3,44 +3,45 @@
     <h3 class="mb-4">利用開始日・利用期間・用品保険の選択</h3>
     <div class="new_order_form">
       <%= form_with(model: @order, local: true, url: confirm_orders_path) do |f| %>
-      <h4>レンタル利用開始日の選択<span class='mandatory'></span></h4>
-      <p>ご利用される日付をご選択ください。『利用開始日』が「お届け日」となります。</p>
-      <p>7日後から2ヶ月後まででご入力ください。</p>
-      <div>
-        <div><%= f.label :rental_start %>：<%= f.date_field :rental_start %></div>
-      </div>
-      <h4>レンタル利用期間の選択<span class='mandatory'></span></h4>
-      <p>ご利用期間をご選択ください。</p>
-      <p>ご利用期間が延びるほど料金が加算されます。</p>
-      <div>
-        <%= f.label :rental_period %>：
-        <%= f.select :rental_period, [["2泊3日", "2泊3日"], ["3泊4日", "3泊4日"], ["4泊5日", "4泊5日"], ["5泊6日", "5泊6日"]] %>
-        <div class="order_list">
-          <ul>
-            <li>3泊4日 … 1,000円加算</li>
-            <li>4泊5日 … 2,000円加算</li>
-            <li>5泊6日 … 3,000円加算</li>
-          </ul>
+        <h4>レンタル利用開始日の選択<span class='mandatory'></span></h4>
+        <p>ご利用される日付をご選択ください。『利用開始日』が「お届け日」となります。</p>
+        <p>7日後から2ヶ月後まででご入力ください。</p>
+        <div>
+          <div><%= f.label :rental_start %>：<%= f.select :rental_start,
+           (Time.now.since(7.day).to_datetime..Time.now.since(60.day).to_datetime).map { |date|  date.strftime('%Y/%m/%d') } %></div>
         </div>
-      </div>
-      <h4>用品保険の選択<span class='mandatory'></span></h4>
-      <p>用品保険を希望される方は選択してください。</p>
-      <div>
-        <%= f.label :insurance_fee %>：
-        <%= f.select :insurance_fee, [["保険なし", "保険なし"], ["用品保険1000", "用品保険1000"], ["用品保険2000", "用品保険2000"], ["用品保険3000", "用品保険3000"]] %>
-        <div class="order_list">
-          <ul>
-            <li>用品保険1000 … 1,000円（最大10,000円までの弁償金を充当します。）</li>
-            <li>用品保険2000 … 2,000円（最大30,000円までの弁償金を充当します。）</li>
-            <li>用品保険3000 … 3,000円（最大50,000円までの弁償金を充当します。）</li>
-          </ul>
+        <h4>レンタル利用期間の選択<span class='mandatory'></span></h4>
+        <p>ご利用期間をご選択ください。</p>
+        <p>ご利用期間が延びるほど料金が加算されます。</p>
+        <div>
+          <%= f.label :rental_period %>：
+          <%= f.select :rental_period, [["2泊3日", "2泊3日"], ["3泊4日", "3泊4日"], ["4泊5日", "4泊5日"], ["5泊6日", "5泊6日"]] %>
+          <div class="order_list">
+            <ul>
+              <li>3泊4日 … 1,000円加算</li>
+              <li>4泊5日 … 2,000円加算</li>
+              <li>5泊6日 … 3,000円加算</li>
+            </ul>
+          </div>
         </div>
-      </div>
+        <h4>用品保険の選択<span class='mandatory'></span></h4>
+        <p>用品保険を希望される方は選択してください。</p>
+        <div>
+          <%= f.label :insurance_fee %>：
+          <%= f.select :insurance_fee, [["保険なし", "保険なし"], ["用品保険1000", "用品保険1000"], ["用品保険2000", "用品保険2000"], ["用品保険3000", "用品保険3000"]] %>
+          <div class="order_list">
+            <ul>
+              <li>用品保険1000 … 1,000円（最大10,000円までの弁償金を充当します。）</li>
+              <li>用品保険2000 … 2,000円（最大30,000円までの弁償金を充当します。）</li>
+              <li>用品保険3000 … 3,000円（最大50,000円までの弁償金を充当します。）</li>
+            </ul>
+          </div>
+        </div>
     </div>
-    <div class="order_link mt-4">
-      <%= link_to "戻る", my_cart_carts_path, class: "btn btn-outline-primary" %>
-      <%= f.submit '次へ', class: "btn btn-outline-danger" %>
+        <div class="order_link mt-4">
+          <%= link_to "戻る", my_cart_carts_path, class: "btn btn-outline-primary" %>
+          <%= f.submit '次へ', class: "btn btn-outline-danger" %>
+        </div>
       <% end %>
-    </div>
   </div>
 </div>
