@@ -1,26 +1,139 @@
-<%= form_with(modle: @order, locul: true, url: {action: 'create'}, scope: :order) do |f| %>
-  <%= f.hidden_field :rental_start, value: @order.rental_start.strftime('%Y-%m-%d') %>
-  <%= f.hidden_field :rental_period, value: @order.rental_period %>
-  <%= f.hidden_field :insurance_fee, value: @order.insurance_fee %>
-  <%= f.hidden_field :price, value: @order.price %>
-  <h3>お届け予定日</h3>
-    <%= @order.rental_start %>
-  <h3>利用期間</h3>
-    <%= @order.rental_period %>
-  <h3>保険内容</h3>
-    <%= @order.insurance_fee %>
-  <h3>お届け先</h3>
-    <%= @order.user.address.prefecture_name %><%= @order.user.address.city %><%= @order.user.address.address1 %>
-  <h3>ご注文内容</h3>
-  <% @cart_items.each do |item| %>
-    <p><%= item.product.name %><%= item.product.rental_price * item.quantity %>円</p>
-  <% end %>
-  <h2><%= "合計：#{@order.price}円" %></h2>
-  <p><%= f.submit '仮予約する' %></p>
-<% end %>
-<%= form_with(model: @order, url: new_order_path, local:true, method: :get) do |f| %>
-  <%= f.hidden_field :rental_start %>
-  <%= f.hidden_field :rental_period %>
-  <%= f.hidden_field :rental_start %>
-  <%= f.submit "戻る", name: "back" %>
-<% end %>
+<div class="row confirm_order">
+  <div class="col-sm-7">
+    <div class="confirm">
+      <h3>入力内容のご確認</h3>
+        <table class="mt-4 order_item">
+          <colgroup>
+            <col width="10%">
+            <col width="40%">
+            <col width="20%">
+            <col width="10%">
+            <col width="20%">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td>用品写真</td>
+              <td>用品名</td>
+              <td>単価</td>
+              <td>数量</td>
+              <td>計</td>
+            </tr>
+            <% @cart_items.each do |item| %>
+            <tr>
+              <td><%= image_tag item.product.photos[0].image.url, class: "image" %></td>
+              <td><%= item.product.name %></td>
+              <td><%= item.product.rental_price %>円</td>
+              <td><%= item.quantity %></td>
+              <td><%= item.product.rental_price * item.quantity %>円</td>
+            </tr>
+            <% end %>
+            <tr>
+              <td colspan="4" class="text-right pr-2">小計</td>
+              <td><%= @total %>円</td>
+            </tr>
+            <tr>
+              <td colspan="4" class="text-right pr-2">用品保険</td>
+              <td><%= @order.insurance_fee_to_quantify(@order.insurance_fee) %>円</td>
+            </tr>
+            <tr>
+              <td colspan="4" class="text-right pr-2">ご利用期間延長料金</td>
+              <td><%= @order.rental_period_to_quantify(@order.rental_period) %>円</td>
+            </tr>
+            <tr>
+              <td colspan="4" class="text-right pr-2">合計</td>
+              <td><%= @order.price %>円</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 class="mt-4">お届け先</h4>
+          <table class="mt-4 order_table">
+            <colgroup>
+              <col width="30%">
+              <col width="70%">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>お名前</td>
+                <td><%= @order.user.account.last_name + @order.user.account.first_name %></td>
+              </tr>
+              <tr>
+                <td>お名前の（フリガナ）</td>
+                <td><%= @order.user.account.last_name_kana + @order.user.account.first_name_kana %></td>
+              </tr>
+              <tr>
+                <td>郵便番号</td>
+                <td><%= @order.user.address.postcode %></td>
+              </tr>
+              <tr>
+                <td>住所</td>
+                <td><%= @order.user.address.prefecture_name + @order.user.address.city + @order.user.address.address1 %></td>
+              </tr>
+              <tr>
+                <td>電話番号</td>
+                <td><%= @order.user.account.contact_number %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= @order.user.email %></td>
+              </tr>
+            </tbody>
+          </table>
+        <h4 class="mt-4">レンタル利用開始日</h4>
+          <table class="mt-4 order_table">
+            <colgroup>
+              <col width="30%">
+              <col width="70%">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>利用開始日（お届け日）</td>
+                <td><%= @order.rental_start.strftime('%Y/%m/%d') %></td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+        <h4 class="mt-4">レンタル利用期間</h4>
+          <table class="mt-4 order_table">
+            <colgroup>
+              <col width="30%">
+              <col width="70%">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>利用期間</td>
+                <td><%= @order.rental_period %></td>
+              </tr>
+            </tbody>
+          </table>
+        <h4 class="mt-4">用品保険</h4>
+          <table class="mt-4 mb-5 order_table">
+            <colgroup>
+              <col width="30%">
+              <col width="70%">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>用品保険</td>
+                <td><%= @order.insurance_fee %></td>
+              </tr>
+            </tbody>
+          </table>
+        <div class="or_link mb-4">
+        <%= form_with(model: @order, url: new_order_path, local:true, method: :get) do |f| %>
+          <%= f.hidden_field :rental_start %>
+          <%= f.hidden_field :rental_period %>
+          <%= f.hidden_field :insurance_fee %>
+          <%= f.submit "戻る", name: "back", class: "btn btn-outline-primary btn_link" %>
+        <% end %>
+        <%= form_with(modle: @order, locul: true, url: {action: 'create'}, scope: :order) do |f| %>
+          <%= f.hidden_field :rental_start, value: @order.rental_start.strftime('%Y-%m-%d') %>
+          <%= f.hidden_field :rental_period, value: @order.rental_period %>
+          <%= f.hidden_field :insurance_fee, value: @order.insurance_fee %>
+          <%= f.hidden_field :price, value: @order.price %>
+          <%= f.submit '仮予約する', class: "btn btn-outline-danger btn_link" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

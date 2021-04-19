@@ -19,9 +19,13 @@
             td {
                 border: solid 1px #dee2e6;
             }
-            tr:nth-child(1),
+            tr:nth-child(1) {
+                background-color: #F2F2F2;
+            }
             tr:last-child td:nth-of-type(1) {
                 background-color: #F2F2F2;
+                text-align: right;
+                padding-right: 1em;
             }
             tr td:nth-of-type(1) {
                 width: 38%;

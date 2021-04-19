@@ -33,8 +33,10 @@ ja:
       order_items:
         quantity: 数量
       order:
-        status: ご注文状況
-        rental_start: レンタル開始日
+        status: 注文状況
+        rental_start: 利用開始日
+        rental_period: 利用期間
+        insurance_fee: 用品保険
       photo:
         image: 商品画像
       product:
