@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :setup_cart_item!, only: %i[ add_item update_item delete_item ]
+  before_action :authenticate_user!
 
   def my_cart
     @cart_items = current_cart.cart_items.includes([:product])
