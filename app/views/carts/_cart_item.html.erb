@@ -1,7 +1,7 @@
 
   <tr>
     <td><%= cart_item.product.name %></td>
-    <td><%= image_tag cart_item.product.photos[0].image.url, class: "image" %></td>
+    <td><%= image_tag cart_item.product.images[0].url, class: "image" %></td>
     <td><%= cart_item.product.rental_price %>円</td>
     <td>
       <%= form_with(url: update_item_carts_url, method: :post, local: true) do |f| %>

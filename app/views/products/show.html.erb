@@ -4,10 +4,10 @@
       <div class="photo_box">
         <ul class="photo_innner">
           <li>
-            <%= image_tag @product.photos[0].image.url, class: "main_image" %>
+            <%= image_tag @product.images[0].url, class: "main_image" %>
             <ul class="image-flex">
-              <% @product.photos.each do |photo| %>
-                <li><%= image_tag photo.image.url, class: "image_list" %></li>
+              <% @product.images.each do |image| %>
+                <li><%= image_tag image.url, class: "image_list" %></li>
               <% end %>
             </ul>
           </li>

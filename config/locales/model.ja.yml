@@ -47,5 +47,6 @@ ja:
         size: 製品寸法
         weight: 重量
         brand: その他
+        images: 画像
       review:
         comment: レビュー内容
