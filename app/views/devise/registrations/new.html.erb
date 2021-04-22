@@ -59,6 +59,7 @@
             <td>
               <div style="color: red;"><%= resource.errors.full_messages_for(:password).first %></div>
               <div><%= f.password_field :password, autocomplete: "new-password" %><div class="pb-3">半角英数字6文字以上でお願いします。</div></div>
+              <div style="color: red;"><%= resource.errors.full_messages_for(:password_confirmation).first %></div>
               <div><%= f.password_field :password_confirmation, autocomplete: "new-password" %><div class="pb-3">確認のために2度入力してください。</div></div>
             </td>
           </tr>
