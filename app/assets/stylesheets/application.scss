@@ -50,11 +50,31 @@
 header {
     height: 130px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #fff;
     border-bottom: solid 1px rgb(158, 158, 158);
     margin-bottom: 30px;
+    .header_link {
+        padding-top: 70px;
+        width: 50%;
+        text-align: right;
+        margin-right: 8%;
+        a {
+            display: inline-block;
+            transition: .3s;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            margin-right: 10px;
+            font-size: 1.4vw;
+            &:hover {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+        }
+    }
     .logo {
+        margin-left: 15%;
+        margin-right: 15%;
         &:hover {
             opacity: 0.3;
         }
@@ -63,6 +83,9 @@ header {
             font-size: 24px;
             position: absolute;
             top: 84px;
+            &:hover {
+                color: #000000;
+            }
         }
         .logo-image {
             width: 100px;
