@@ -13,7 +13,6 @@
               <div style="color: red;"><%= resource.errors.full_messages_for(:"account.last_name").first %></div>
               <div style="color: red;"><%= resource.errors.full_messages_for(:"account.first_name").first %></div>
               <p>姓<%= acc.text_field :last_name %>名<%= acc.text_field :first_name %></p>
-              <% binding.pry %>
             </td>
           </tr>
           <tr>
