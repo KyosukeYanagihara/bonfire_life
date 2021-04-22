@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_product
+  before_action :authenticate_user!
+  
   def create
     @review = @product.reviews.build(review_params)
     @review.user_id = current_user.id

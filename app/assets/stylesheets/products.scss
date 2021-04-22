@@ -17,6 +17,12 @@
     //  justify-content: center;
      justify-content: space-between;
      width: 900px;
+     .no_search {
+         position: absolute;
+         left: 25%;
+         top: 10%;
+         font-size: 32px;
+     }
  }
 
  .flex::after{
@@ -87,6 +93,9 @@
         margin-bottom: 60px;
         padding-bottom: 30px;
         background-color: #ffffff;
+        .edit_image {
+            width: 20%;
+        }
         .form_btn {
             margin: 30px;
             width: 50%;

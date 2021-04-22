@@ -4,10 +4,10 @@
       <div class="photo_box">
         <ul class="photo_innner">
           <li>
-            <%= image_tag @product.photos[0].image.url, class: "main_image" %>
+            <%= image_tag @product.images[0].url, class: "main_image" %>
             <ul class="image-flex">
-              <% @product.photos.each do |photo| %>
-                <li><%= image_tag photo.image.url, class: "image_list" %></li>
+              <% @product.images.each do |image| %>
+                <li><%= image_tag image.url, class: "image_list" %></li>
               <% end %>
             </ul>
           </li>
@@ -28,10 +28,12 @@
           <p>数量：<%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], value: 1 %></p>
           <%= f.submit "カートに入れる", class: "btn btn-outline-dark m-10" %>
         <% end %>
-          <% if !Favorite.exists?(user_id: current_user.id, product_id: @product.id) %>
-            <%= link_to "お気に入り登録", product_favorites_path(@product.id), method: :post, class: "btn btn-outline-primary m-10" %>
-          <% else %>
-            <%= link_to "お気に入り削除", product_favorites_path(product_id: @product.id, id: @product.favorites[0].id), method: :delete, class: "btn btn-outline-danger m-10" %><br/>
+          <% if user_signed_in? %>
+            <% if !Favorite.exists?(user_id: current_user.id, product_id: @product.id) %>
+              <%= link_to "お気に入り登録", product_favorites_path(@product.id), method: :post, class: "btn btn-outline-primary m-10" %>
+            <% else %>
+              <%= link_to "お気に入り削除", product_favorites_path(product_id: @product.id, id: @product.favorites[0].id), method: :delete, class: "btn btn-outline-danger m-10" %><br/>
+            <% end %>
           <% end %>
           <br/>
         <table class="table">

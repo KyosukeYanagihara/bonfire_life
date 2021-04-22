@@ -90,16 +90,9 @@ ActiveRecord::Schema.define(version: 2021_04_18_071817) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.text "image", null: false
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_photos_on_product_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
+    t.json "images", null: false
     t.text "description", null: false
     t.integer "rental_price", null: false
     t.integer "selling_price", null: false
@@ -147,7 +140,6 @@ ActiveRecord::Schema.define(version: 2021_04_18_071817) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
-  add_foreign_key "photos", "products"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
 end

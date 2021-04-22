@@ -20,7 +20,7 @@
             </tr>
             <% @cart_items.each do |item| %>
             <tr>
-              <td><%= image_tag item.product.photos[0].image.url, class: "image" %></td>
+              <td><%= image_tag item.product.images[0].url, class: "image" %></td>
               <td><%= item.product.name %></td>
               <td><%= item.product.rental_price %>円</td>
               <td><%= item.quantity %></td>
@@ -136,4 +136,3 @@
     </div>
   </div>
 </div>
-

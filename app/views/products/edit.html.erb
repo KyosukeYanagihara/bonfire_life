@@ -5,13 +5,13 @@
           <div><span class='mandatory'></span> <%= f.label :image, "商品画像" %></div>
           <div><span>最大5枚までアップロードできます</span></div>
           <div>
-        <%= f.fields_for :photos do |image| %>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
-            <%= image.file_field :image, multiple: true, name: 'product_photos[image][]' %><br/>
-        <% end %>
+          <% @product.images.each do |image| %>
+            <li><%= image_tag image.url, class: "edit_image" %></li>
+            <%= hidden_field :product, :images, multiple: true, value: image.identifier %>
+          <% end %>
+          <%= f.hidden_field :images_cache %><br>
+          <%= f.file_field :images, multiple: true unless @product.images.count == 5 %>
+          <div><span style="color: red;"><%= @product.errors.full_messages_for(:images).first %></span></div>
           </div>
       </div>
 
@@ -62,3 +62,7 @@
   </div>
 </div>
  
+
+
+
+

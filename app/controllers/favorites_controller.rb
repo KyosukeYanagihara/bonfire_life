@@ -1,4 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @product = Product.find(params[:product_id])
     @favorite = Favorite.create(user_id: current_user.id, product_id: @product.id)

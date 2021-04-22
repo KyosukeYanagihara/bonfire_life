@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy  ]
+  before_action :authenticate_user!, only: %i[ new create edit update destroy ]
+
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
+    @products = @q.result
   end
 
   def show
@@ -12,22 +14,18 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.photos.build
   end
   
   def create
     @product = Product.new(product_params)
+    
     if @product.save
-      params[:product_photos][:image].each do |image|
-        @product.photos.create(image: image, product_id: @product.id)
-      end
       redirect_to products_path, notice: "作成しました"
     else
-      @product.photos.build
       render :new
     end
   end
-
+  
   def edit
   end
 
@@ -35,7 +33,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to product_path(@product.id), notice: "編集しました"
     else
-      reder :edit
+      render :edit
     end
   end
 
@@ -51,6 +49,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :rental_price, :selling_price, :size,
-                                     :weight, :brand, photos_attributes: [:image])
+                                     :weight, :brand, {images: []})
   end
 end

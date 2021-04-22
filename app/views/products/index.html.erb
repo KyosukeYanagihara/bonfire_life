@@ -10,19 +10,23 @@
       <p><%= f.number_field :rental_price_lt, class: "search_form" %><br/>円未満</p>
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
-    <p>ソート</p>
-    <p><%= sort_link(@q, :rental_price, "金額順") %></p>
+    
   </div>
   <div class="flex col-sm-8">
     <% @products.each do |product| %>
       <div class="index_container ">
         <ul>
-          <li><%= link_to (image_tag product.photos[0].image.url, class: "index_photo"), product_path(product.id) %></li>
+          <li><%= link_to (image_tag product.images.first.to_s, class: "index_photo"), product_path(product.id) %></li>
           <li><%= link_to product.name, product_path(product.id) %></li>
           <li>レンタル料金<%= product.rental_price %>円<span class="tax">(税込)</span></li>
         </ul>
       </div>
     <% end %>
+    <div class="no_search">
+      <% if @q.result.count == 0 %>
+        <p>検索結果は0件でした</p>
+      <% end %>
+    </div>
   </div>
   <div class="col-sm-1"></div>
 </div>
