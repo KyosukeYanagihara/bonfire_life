@@ -3,20 +3,20 @@ RSpec.describe "Addressモデル機能" ,type: :model do
   let(:user1){ FactoryBot.create(:user1) }
   describe 'バリデーションのテスト' do
     context 'バリデーションにひっかかる条件' do
-      it 'postcodeがない場合' do
-        address1 = FactoryBot.build(:address1, postcode: "")
+      it 'postcodeが空の場合' do
+        address1 = FactoryBot.build(:address1, user_id: user1.id, postcode: "")
         expect(address1).not_to be_valid
       end
-      it 'prefecture_codeがない場合' do
-        address1 = FactoryBot.build(:address1, prefecture_code: "")
+      it 'prefecture_codeが空の場合' do
+        address1 = FactoryBot.build(:address1, user_id: user1.id, prefecture_code: "")
         expect(address1).not_to be_valid
       end
-      it 'cityがない場合' do
-        address1 = FactoryBot.build(:address1, city: "")
+      it 'cityが空の場合' do
+        address1 = FactoryBot.build(:address1, user_id: user1.id, city: "")
         expect(address1).not_to be_valid
       end
-      it 'address1がない場合' do
-        address1 = FactoryBot.build(:address1, address1: "")
+      it 'address1が空の場合' do
+        address1 = FactoryBot.build(:address1, user_id: user1.id, address1: "")
         expect(address1).not_to be_valid
       end
     end

@@ -4,31 +4,31 @@ RSpec.describe "Accountモデル機能", type: :model do
   describe 'バリデーションのテスト' do
     context "バリデーションに引っかかる条件" do
       it 'first_nameが空の場合' do
-        account1 = FactoryBot.build(:account1, first_name: "")
+        account1 = FactoryBot.build(:account1, user_id: user1.id, first_name: "")
         expect(account1).not_to be_valid
       end
       it 'last_nameが空の場合' do
-        account1 = FactoryBot.build(:account1, last_name: "")
+        account1 = FactoryBot.build(:account1, user_id: user1.id, last_name: "")
         expect(account1).not_to be_valid
       end
       it 'first_name_kanaが空の場合' do
-        account1 = FactoryBot.build(:account1, first_name_kana: "")
+        account1 = FactoryBot.build(:account1, user_id: user1.id, first_name_kana: "")
         expect(account1).not_to be_valid
       end
       it 'last_name_kanaが空の場合' do
-        account1 = FactoryBot.build(:account1, last_name_kana: "")
+        account1 = FactoryBot.build(:account1, user_id: user1.id, last_name_kana: "")
         expect(account1).not_to be_valid
       end
       it 'birthday空の場合' do
-        account1 = FactoryBot.build(:account1, birthday: "")
+        account1 = FactoryBot.build(:account1, user_id: user1.id, birthday: "")
         expect(account1).not_to be_valid
       end
       it 'sexが空の場合' do
-        account1 = FactoryBot.build(:account1, sex: "")
+        account1 = FactoryBot.build(:account1, user_id: user1.id, sex: "")
         expect(account1).not_to be_valid
       end
       it 'contact_numberが空の場合' do
-        account1 = FactoryBot.build(:account1, contact_number: "")
+        account1 = FactoryBot.build(:account1, user_id: user1.id, contact_number: "")
         expect(account1).not_to be_valid
       end
     end
