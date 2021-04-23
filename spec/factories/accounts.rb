@@ -9,4 +9,14 @@ FactoryBot.define do
     contact_number { 11122223333 }
     admin { false }
   end
+  factory :account_admin, class: Account do
+    first_name { "admin_account" }
+    last_name { "admin_account" }
+    first_name_kana { "admin_account" }
+    last_name_kana { "admin_account" }
+    birthday { Time.current }
+    sex { 1 }
+    contact_number { 11122223333 }
+    admin { true }
+  end
  end

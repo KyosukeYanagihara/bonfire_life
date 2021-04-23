@@ -1,9 +1,9 @@
 require 'rails_helper'
 RSpec.describe "ユーザー機能管理", type: :system do
-  let(:user1){ FactoryBot.create(:user1) }
+  # let(:user1){ FactoryBot.create(:user1) }
   describe "ユーザー登録機能" do
     context "ユーザーを新規作成した場合" do
-      it "新規作成した場合" do
+      it "topページに遷移する" do
         user = User.new(email: "test_user@example.com", password: "password", password_confirmation: "password")
         address = Address.new(postcode: 1234567, city: "test", address1: "1831-4", prefecture_code: "東京都", user_id: user.id)
         account = Account.new(first_name: "test", last_name: "test", first_name_kana: "test", last_name_kana: "test", birthday: Time.current, sex: 1, contact_number: 12345678901)
