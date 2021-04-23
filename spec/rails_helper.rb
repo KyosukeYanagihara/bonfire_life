@@ -42,6 +42,22 @@ RSpec.configure do |config|
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+  config.after(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.clean_with :truncation
+
+  config.after(:all) do
+    DatabaseCleaner.clean
+  end
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
