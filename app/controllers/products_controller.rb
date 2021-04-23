@@ -27,19 +27,31 @@ class ProductsController < ApplicationController
   end
   
   def edit
+    if current_user.account.admin ==true
+    else
+      redirect_to root_path
+    end
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to product_path(@product.id), notice: "編集しました"
+    if current_user.account.admin ==true
+      if @product.update(product_params)
+        redirect_to product_path(@product.id), notice: "編集しました"
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to root_path
     end
   end
 
   def destroy
-    @product.destroy
-    redirect_to products_path, notice: "削除しました。"
+    if current_user.account.admin ==true
+      @product.destroy
+      redirect_to products_path, notice: "削除しました。"
+    else
+      redirect_to root_path
+    end
   end
 
   private
