@@ -1,6 +1,7 @@
 <div class="row cart_item">
   <div class="col-sm-8">
     <div class="mb-5"><h2>カート内アイテム</h2></div>
+    <% if @cart_items.count >= 1 %>
     <div class="mb-4"><span style="color: red;">※『ご利用開始日』、『ご利用期間』、『用品保険の選択』はレンタル手続き中にお選びいただけます。</span></div>
       <div class="item_list">
         <table>
@@ -25,5 +26,8 @@
         <%= link_to "用品選択を続ける", products_path, class: "btn btn-outline-danger" %>
         <%= link_to "レンタル手続きへ", new_order_path, class: "btn btn-outline-primary", 'data-turbolinks': false %>
       </div>
+    <% else %>
+      <div class="not_cart_item"><b>※ 現在カート内にレンタル用品はございません。</b></div>
+    <% end %>
   </div>
 </div>  
