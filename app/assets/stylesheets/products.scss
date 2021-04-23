@@ -59,6 +59,10 @@
 
 .description {
     text-align: left;
+    .product_edit {
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
 
  .search {

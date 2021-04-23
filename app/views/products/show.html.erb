@@ -57,6 +57,12 @@
             </tr>
           </tbody>
         </table>
+        <% if user_signed_in? && current_user.account.admin == true %>
+          <div class="product_edit">
+            <%= link_to '編集', edit_product_path(@product), class: "btn btn-outline-success" %> 
+            <%= link_to '削除', product_path(@product.id), method: :delete, class: "btn btn-outline-danger" %> 
+          </div>
+        <% end %>
       </div>
     </div>
   <div class="col-sm-1 h-700"></div>
@@ -67,8 +73,5 @@
       <%= render partial: 'reviews/index', locals: { reviews: @reviews, product: @product } %>
     </div>
     <%= render partial: 'reviews/form', locals: { review: @review, product: @product } %>
-    <%= link_to '編集', edit_product_path(@product) %> |
-    <%= link_to '削除', product_path(@product.id), method: :delete %> |
-    <%= link_to '戻る', products_path %>
   </div>
 </div>
