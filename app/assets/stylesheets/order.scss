@@ -79,14 +79,27 @@
 .index_order {
     display: flex;
     justify-content: center;
-    table {
-        background-color: #ffffff;
-    }
-    .backcolor {
-        background-color: #F2F2F2;
-    }
-    td {
-        border: solid 1px #dee2e6;
-        padding: 10px;
+    .index_order_history {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .not_order {
+            border: solid 1px rgb(192, 75, 75);
+            color: rgb(192, 75, 75);
+            padding: 20px;
+            background-color: #fff;
+            width: 80%;
+        }
+        table {
+            background-color: #ffffff;
+            width: 100%;
+        }
+        .backcolor {
+            background-color: #F2F2F2;
+        }
+        td {
+            border: solid 1px #dee2e6;
+            padding: 10px;
+        }
     }
 }

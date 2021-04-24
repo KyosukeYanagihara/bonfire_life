@@ -1,49 +1,55 @@
 <div class="row index_order">
   <div class="col-sm-10">
-    <h2>レンタル履歴一覧</h2>
-    <table>
-      <colgroup>
-        <col width="10%">
-        <col width="20%">
-        <col width="5%">
-        <col width="10%">
-        <col width="10%">
-        <col width="10%">
-        <col width="10%">
-        <col width="10%">
-      </colgroup>
-      <tbody>
-        <tr class="backcolor">
-          <td>予約日時</td>
-          <td>用品名</td>
-          <td>数量</td>
-          <td>利用開始日</td>
-          <td>利用期間</td>
-          <td>用品保険</td>
-          <td>合計金額</td>
-          <td>ご注文状況</td>
-        </tr>
-        <% @orders.each do |order| %>
-        <tr>
-          <td><%= order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-          <td>
-            <% order.order_items.each do |item| %>
-              <div><%= item.product.name %></div>
-            <% end %>
-          </td>
-          <td>
-            <% order.order_items.each do |item| %>
-              <div><%= item.quantity %></div>
-            <% end %>
-          </td>
-          <td><%= order.rental_start.strftime('%Y/%m/%d') %></td>
-          <td><%= order.rental_period %></td>
-          <td><%= order.insurance_fee %></td>
-          <td><%= order.price %>円</td>
-          <td><%= order.status %></td>
-        </tr>
-        <% end %> 
-      </tbody>
-    </table>
+      <div><h2>レンタル履歴一覧</h2></div>
+    <div class="index_order_history">
+        <% if current_user.orders.present? %>
+        <table>
+          <colgroup>
+            <col width="10%">
+            <col width="20%">
+            <col width="5%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+          </colgroup>
+          <tbody>
+            <tr class="backcolor">
+              <td>予約日時</td>
+              <td>用品名</td>
+              <td>数量</td>
+              <td>利用開始日</td>
+              <td>利用期間</td>
+              <td>用品保険</td>
+              <td>合計金額</td>
+              <td>ご注文状況</td>
+            </tr>
+            <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+              <td>
+                <% order.order_items.each do |item| %>
+                  <div><%= item.product.name %></div>
+                <% end %>
+              </td>
+              <td>
+                <% order.order_items.each do |item| %>
+                  <div><%= item.quantity %></div>
+                <% end %>
+              </td>
+              <td><%= order.rental_start.strftime('%Y/%m/%d') %></td>
+              <td><%= order.rental_period %></td>
+              <td><%= order.insurance_fee %></td>
+              <td><%= order.price %>円</td>
+              <td><%= order.status %></td>
+            </tr>
+            <% end %> 
+          </tbody>
+        </table>
+        <% else %>
+        <div class="not_order mt-4">※ 現在レンタル履歴はございません。</div>
+        <% end %>
+    </div>
   </div>
 </div>    
