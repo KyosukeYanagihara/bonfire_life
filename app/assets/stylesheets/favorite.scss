@@ -1,0 +1,22 @@
+.index_favorites {
+    display: flex;
+    justify-content: center;
+    .favorites_item {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        table {
+            width: 100%;
+            tr:nth-child(1) {
+                background-color: #F2F2F2;
+            }
+            td {
+                border: solid 1px #dee2e6;
+                padding: 10px;
+            }
+            tr td:nth-of-type(1) {
+                background-color: #F2F2F2;
+            }
+        }
+    }
+}

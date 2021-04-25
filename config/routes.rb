@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'reviews/create'
+  resources :favorites, only: %i[ index ]
   resources :products do
     resource :favorites, only: %i[ create destroy ]
     resources :reviews
