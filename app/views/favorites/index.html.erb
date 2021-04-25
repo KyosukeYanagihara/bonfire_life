@@ -1,0 +1,28 @@
+<div class="row index_favorites">
+  <div class="col-sm-6">
+      <h3>お気に入り一覧</h3>
+    <div class="favorites_item">
+      <table class="mt-5">
+        <colgroup>
+          <col width="40%">
+          <col width="30%">
+          <col width="30%">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>用品名</td>
+            <td>用品画像</td>
+            <td>レンタル価格</td>
+          </tr>
+          <% @favorites.each do |favorite| %>
+          <tr>
+            <td class="text-left pl-3"><%= favorite.product.name %></td>
+            <td><%= image_tag(favorite.product.images[0].url,class: "image") %></td>
+            <td><%= favorite.product.rental_price %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

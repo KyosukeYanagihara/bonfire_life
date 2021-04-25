@@ -1,6 +1,12 @@
 .cart_item {
     display: flex;
     justify-content: center;
+    .not_cart_item {
+        border: solid 1px rgb(192, 75, 75);
+        color: rgb(192, 75, 75);
+        padding: 20px;
+        background-color: #fff;
+    }
     .link {
         display: flex;
         justify-content: space-around;

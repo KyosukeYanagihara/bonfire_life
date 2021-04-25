@@ -6,10 +6,14 @@ class OrdersController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @order = Order.new(order_params)
+    if current_cart.cart_items.present?
+      if params[:back]
+        @order = Order.new(order_params)
+      else
+        @order = Order.new
+      end
     else
-      @order = Order.new
+      redirect_to products_path
     end
   end
 
