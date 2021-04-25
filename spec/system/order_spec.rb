@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe "注文機能管理" do
+RSpec.describe "注文機能管理", type: :system do
   let!(:product1) {FactoryBot.create(:product1)}
   let!(:product2) {FactoryBot.create(:product2)}
   let!(:product3) {FactoryBot.create(:product3)}
