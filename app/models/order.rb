@@ -9,6 +9,20 @@ class Order < ApplicationRecord
   validates :rental_start, presence: true
   validates :rental_period, presence: true
   validates :insurance_fee, presence: true
+  validate :from_7_date_after
+  validate :within_after_60_date
+
+  def from_7_date_after
+    unless rental_start == nil
+      errors.add(:rental_start, 'は、7日後以降の日付を入力して下さい') if rental_start < Date.current.since(7.day) 
+    end
+  end
+
+  def within_after_60_date
+    unless rental_start == nil
+      errors.add(:rental_start, 'は、60日後以前の日付を入力して下さい') if rental_start > Date.current.since(61.day) 
+    end
+  end
 
   def rental_period_to_quantify(rental_period)
     if rental_period == "2泊3日"

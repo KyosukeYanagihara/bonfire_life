@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :selling_price, null: false
       t.integer :size, null: false
       t.integer :storage_size, null: false
-      t.integer :weight, null: false
+      t.float :weight, null: false
       t.integer :stock, default: 1
       t.string :brand
 

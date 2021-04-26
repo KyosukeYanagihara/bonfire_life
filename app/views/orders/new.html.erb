@@ -9,6 +9,7 @@
         <div>
           <div><%= f.label :rental_start %>：<%= f.select :rental_start,
            (Time.now.since(7.day).to_datetime..Time.now.since(60.day).to_datetime).map { |date|  date.strftime('%Y/%m/%d') } %></div>
+           <div><span style="color: red;"><%= @order.errors.full_messages_for(:rental_start).first %></span></div>
         </div>
         <h4>レンタル利用期間の選択<span class='mandatory'></span></h4>
         <p>ご利用期間をご選択ください。</p>

@@ -19,8 +19,24 @@ RSpec.describe "バリデーションのテスト" do
       product1 = FactoryBot.build(:product1, rental_price: "")
       expect(product1).not_to be_valid
     end
+    it 'rental_priceが文字の場合' do
+      product1 = FactoryBot.build(:product1, rental_price: "失敗")
+      expect(product1).not_to be_valid
+    end
+    it 'rental_priceが負の数の場合' do
+      product1 = FactoryBot.build(:product1, rental_price: -4)
+      expect(product1).not_to be_valid
+    end
     it 'selling_priceが空の場合' do
       product1 = FactoryBot.build(:product1, selling_price: "")
+      expect(product1).not_to be_valid
+    end
+    it 'selling_priceが文字場合' do
+      product1 = FactoryBot.build(:product1, selling_price: "失敗")
+      expect(product1).not_to be_valid
+    end
+    it 'selling_priceが負の数の場合' do
+      product1 = FactoryBot.build(:product1, selling_price: -5)
       expect(product1).not_to be_valid
     end
     it 'sizeが空の場合' do
@@ -31,6 +47,14 @@ RSpec.describe "バリデーションのテスト" do
       product1 = FactoryBot.build(:product1, weight: "")
       expect(product1).not_to be_valid
     end
+    it 'weightが文字の場合' do
+      product1 = FactoryBot.build(:product1, weight: "失敗")
+      expect(product1).not_to be_valid
+    end
+    it 'weightが負の数の場合' do
+      product1 = FactoryBot.build(:product1, weight: -5)
+      expect(product1).not_to be_valid
+    end
     it 'imageが6枚の場合' do
       product1 = FactoryBot.build(:product1, images: [ image, image, image, image, image, image ])
       expect(product1).not_to be_valid
@@ -39,6 +63,18 @@ RSpec.describe "バリデーションのテスト" do
   context 'バリデーションが通る条件' do
     it '空の入力部分がない' do
       product1 = FactoryBot.build(:product1)
+      expect(product1).to be_valid
+    end
+    it 'rental_priceが正の数の場合' do
+      product1 = FactoryBot.build(:product1, rental_price: 4)
+      expect(product1).to be_valid
+    end
+    it 'selling_priceが正の数の場合' do
+      product1 = FactoryBot.build(:product1, selling_price: 5)
+      expect(product1).to be_valid
+    end
+    it 'weightが正の数の場合' do
+      product1 = FactoryBot.build(:product1, weight: 5)
       expect(product1).to be_valid
     end
     it 'imageが1枚の場合' do
