@@ -4,7 +4,7 @@ FactoryBot.define do
     last_name { "account1" }
     first_name_kana { "account1" }
     last_name_kana { "account1" }
-    birthday { Time.current }
+    birthday { Time.current.ago(20.year) }
     sex { 1 }
     contact_number { 11122223333 }
     admin { false }
@@ -14,7 +14,7 @@ FactoryBot.define do
     last_name { "admin_account" }
     first_name_kana { "admin_account" }
     last_name_kana { "admin_account" }
-    birthday { Time.current }
+    birthday { Time.current.ago(20.year) }
     sex { 1 }
     contact_number { 11122223333 }
     admin { true }

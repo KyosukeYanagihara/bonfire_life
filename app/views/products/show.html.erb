@@ -75,7 +75,7 @@
     <div id="reviews_area">
       <%= render partial: 'reviews/index', locals: { reviews: @reviews, product: @product } %>
     </div>
-    <% if user_signed_in %>
+    <% if user_signed_in? %>
     <%= render partial: 'reviews/form', locals: { review: @review, product: @product } %>
     <% end %>
   </div>
