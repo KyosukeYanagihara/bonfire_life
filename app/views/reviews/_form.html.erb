@@ -10,10 +10,23 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.label :comment %>
+    <div class="review_rating">
+      <label>評価</label><br>
+    </div>
+    <%= form.label :comment %><br>
     <%= form.text_area :comment %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '投稿する' %>
   </div>
 <% end %>
+<script>
+  $('.review_rating').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,
+    scoreName: 'review[rate]'
+  });
+</script>
