@@ -5,6 +5,13 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        .not_favorite {
+            border: solid 1px rgb(192, 75, 75);
+            color: rgb(192, 75, 75);
+            padding: 20px;
+            background-color: #fff;
+            width: 80%;
+        }
         table {
             width: 100%;
             tr:nth-child(1) {

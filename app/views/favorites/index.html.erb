@@ -2,6 +2,7 @@
   <div class="col-sm-6">
       <h3>お気に入り一覧</h3>
     <div class="favorites_item">
+      <% if current_user.favorites.present? %>
       <table class="mt-5">
         <colgroup>
           <col width="40%">
@@ -23,6 +24,9 @@
           <% end %>
         </tbody>
       </table>
+      <% else %>
+      <div class="not_favorite mt-4">※ 現在お気に入りされた商品はございません。</div>
+      <% end %>
     </div>
   </div>
 </div>
