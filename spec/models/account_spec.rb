@@ -23,6 +23,14 @@ RSpec.describe "Accountモデル機能", type: :model do
         account1 = FactoryBot.build(:account1, user_id: user1.id, birthday: "")
         expect(account1).not_to be_valid
       end
+      it 'birthdayが未来日の場合' do
+        account1 = FactoryBot.build(:account1, user_id: user1.id, birthday: Time.current.since(3.day))
+        expect(account1).not_to be_valid
+      end
+      it 'birthdayが満16才になっていない場合' do
+        account1 = FactoryBot.build(:account1, user_id: user1.id, birthday: Time.current.ago(15.year))
+        expect(account1).not_to be_valid
+      end
       it 'sexが空の場合' do
         account1 = FactoryBot.build(:account1, user_id: user1.id, sex: "")
         expect(account1).not_to be_valid
