@@ -17,10 +17,10 @@ class Order < ApplicationRecord
       errors.add(:rental_start, 'は、7日後以降の日付を入力して下さい') if rental_start < Date.current.since(7.day) 
     end
   end
-  
+
   def within_after_60_date
     unless rental_start == nil
-      errors.add(:rental_start, 'は、60日後以前の日付を入力して下さい') if rental_start > Date.current.since(60.day) 
+      errors.add(:rental_start, 'は、60日後以前の日付を入力して下さい') if rental_start > Date.current.since(61.day) 
     end
   end
 
