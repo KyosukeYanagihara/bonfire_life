@@ -31,7 +31,7 @@ Account.create!(
   last_name: "山田",
   first_name_kana: "タロウ",
   last_name_kana: "ヤマダ",
-  birthday: Time.current,
+  birthday: Time.current.ago(25.year),
   sex: 1,
   contact_number: 12345678901,
   user_id: 1,
