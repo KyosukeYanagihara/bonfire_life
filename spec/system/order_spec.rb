@@ -63,6 +63,7 @@ RSpec.describe "注文機能管理", type: :system do
       end
       it "仮予約完了画面へ遷移する" do
         click_on "仮予約する"
+        sleep(1)
         expect(page).to have_current_path complete_orders_path 
         expect(page).to have_content "仮予約が完了しました"
       end
