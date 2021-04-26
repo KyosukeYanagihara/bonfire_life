@@ -1,8 +1,9 @@
 <% if @review.errors.any? %>
-  <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-  <ul>
-  <% review.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-  </ul>
+  <div class="review_box text-left">
+      <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <span style="color: red;"><li><%= message %></li></span>
+      <% end %>
+      </ul>
+  </div>
 <% end %>

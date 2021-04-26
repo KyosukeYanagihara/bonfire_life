@@ -1,25 +1,25 @@
 <% if @product.reviews.first.id.nil? %>
-  <p>まだレビューがありません</p>
+  <p class="review_box text-left">まだレビューがありません</p>
 <% end %>
-<ul>
-  <% reviews.each do |review| %>
-    <% if review.id.present? %>
-      <div class="review_box">
-        <li class="review_list">
-          <div class="review_comment" id ="this_review_<%= review.id %>"><%= "USER #{review.user.id}様" %>
-            <p class="review_rate" data-score="<%= review.rate %>"></p>
-            <p><%= review.comment %></p>
+<% reviews.each do |review| %>
+  <% if review.id.present? %>
+    <div class="review_box text-left">
+      <div class="review_comment" id ="this_review_<%= review.id %>">
+        <div class="review_name">
+          <div><%= "USER #{review.user.id}様" %></div>
+          <div>
             <% if current_user.present? && current_user == review.user %>
               <%= link_to "編集", edit_product_review_path(product, review), remote: true %>
-              <%= link_to "削除", product_review_path(review.product_id, review.id), method: :delete, remote: true,
-                                            data: { confirm: "本当に削除しますか?"} %>
+              <%= link_to "削除", product_review_path(review.product_id, review.id), method: :delete, remote: true,data: { confirm: "本当に削除しますか?"} %>
             <% end %>
           </div>
-        </li>
+        </div>
+        <p class="review_rate" data-score="<%= review.rate %>"></p>
+        <p><%= review.comment %></p>
       </div>
-    <% end %>
+    </div>
   <% end %>
-</ul>
+<% end %>
 <script>
   $('.review_rate').raty({
     readOnly: true,
