@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2021_04_18_071817) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.datetime "birthday"
-    t.integer "sex"
+    t.datetime "birthday", null: false
+    t.integer "sex", null: false
     t.string "contact_number", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -33,8 +33,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_071817) do
   create_table "addresses", force: :cascade do |t|
     t.integer "postcode", null: false
     t.string "city", null: false
-    t.string "address1"
-    t.string "address2"
+    t.string "address1", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
