@@ -10,4 +10,12 @@ class Account < ApplicationRecord
   validates :birthday, presence: true
   validates :sex, presence: true
   validates :contact_number, presence: true
+
+  validate :from_full_sixteen_years_old
+
+  def from_full_sixteen_years_old
+    unless birthday == nil
+      errors.add(:birthday, 'は、満16歳から登録できます') if birthday > Date.current.ago(16.year) 
+    end
+  end
 end
