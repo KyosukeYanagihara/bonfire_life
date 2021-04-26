@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_071817) do
     t.bigint "product_id"
     t.bigint "user_id"
     t.text "comment"
+    t.float "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"

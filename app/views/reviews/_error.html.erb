@@ -1,0 +1,9 @@
+<% if @review.errors.any? %>
+  <div class="review_box text-left">
+      <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <span style="color: red;"><li><%= message %></li></span>
+      <% end %>
+      </ul>
+  </div>
+<% end %>

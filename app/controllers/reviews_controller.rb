@@ -6,11 +6,8 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.build(review_params)
     @review.user_id = current_user.id
     respond_to do |format|
-      if @review.save
+        @review.save
         format.js { render :index }
-      else
-        format.html { redirect_to product_path(@product), notice: '投稿できませんでした...' }
-      end
     end
   end
 
@@ -25,13 +22,13 @@ class ReviewsController < ApplicationController
   def update
     @review = @product.reviews.find(params[:id])
       respond_to do |format|
-        if @review.update(review_params)
+          @review.update(review_params)
           flash.now[:notice] = 'レビューが編集されました'
           format.js { render :index }
-        else
+
           flash.now[:notice] = 'レビューの編集に失敗しました'
           format.js { render :edit_error }
-        end
+
       end
   end
 
@@ -47,7 +44,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:product_id, :comment)
+    params.require(:review).permit(:product_id, :comment, :rate, :user_id)
   end
 
   def set_product

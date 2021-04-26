@@ -1,0 +1,20 @@
+.reviews {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    .review_box {
+        background-color: rgb(255, 255, 255);
+        padding: 30px;
+        border: solid 1px #dee2e6;
+        margin-top: 30px;
+        .review_name {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    textarea {
+        width: 95%;
+        border: solid 1px #dee2e6;
+        height: 100px;
+    }
+}

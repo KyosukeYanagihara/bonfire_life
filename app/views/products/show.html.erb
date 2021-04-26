@@ -67,8 +67,11 @@
     </div>
   <div class="col-sm-1 h-700"></div>
 </div>
-<div class="row">
-  <div class="col-sm-1">
+<div class="row reviews">
+  <div class="col-sm-6">
+    <div id="error_explanation">
+      <%= render partial: 'reviews/error', locals: { review: @review } %>
+    </div>
     <div id="reviews_area">
       <%= render partial: 'reviews/index', locals: { reviews: @reviews, product: @product } %>
     </div>

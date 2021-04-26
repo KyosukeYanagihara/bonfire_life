@@ -1,19 +1,23 @@
 <%= form_with(model: [product, review]) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="review_box text-left pl-3 mb-5">
+    <div class="review_rating">
+      <label>評価</label><br>
     </div>
-  <% end %>
-  <div class="field">
-    <%= form.label :comment %>
+    <%= form.label :comment %><br>
     <%= form.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
+    <div id="error_explanation"><%= render partial: 'reviews/error', locals: { review: @review } %></div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <div class="actions">
+      <%= form.submit '投稿する' %>
+    </div>
   </div>
 <% end %>
+<script>
+  $('.review_rating').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,
+    scoreName: 'review[rate]'
+  });
+</script>
