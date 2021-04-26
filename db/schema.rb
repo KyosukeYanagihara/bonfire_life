@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2021_04_18_071817) do
     t.integer "rental_price", null: false
     t.integer "selling_price", null: false
     t.string "size", null: false
-    t.integer "weight", null: false
+    t.float "weight", null: false
     t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
