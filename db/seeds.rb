@@ -42,7 +42,6 @@ Account.create!(
 Product.create!(
   [
     {
-      id: 1,
       name: "mouncol ORTEGA",
       images: [open("#{Rails.root}/db/fixtures/mouncol ORTEGA1.jpg"), 
               open("#{Rails.root}/db/fixtures/mouncol ORTEGA2.jpg"),
@@ -58,7 +57,6 @@ Product.create!(
       brand: "sanzoku mountain サンゾクマウンテン",
     },
     {
-      id: 2,
       name: "mouncos ORTEGA",
       images: [open("#{Rails.root}/db/fixtures/mouncos ORTEGA1.jpg"), 
               open("#{Rails.root}/db/fixtures/mouncos ORTEGA2.jpg"), 
@@ -74,7 +72,6 @@ Product.create!(
       brand: "sanzoku mountain サンゾクマウンテン",
     },
     {
-      id: 3,
       name: "mouncol",
       images: [open("#{Rails.root}/db/fixtures/mouncol1.jpg"), 
               open("#{Rails.root}/db/fixtures/mouncol2.jpg"), 
@@ -88,7 +85,6 @@ Product.create!(
       brand: "sanzoku mountain サンゾクマウンテン",
     },
     {
-      id: 4,
       name: "TAKIBI STAND L",
       images: [open("#{Rails.root}/db/fixtures/TAKIBI STAND L1.jpg"), 
               open("#{Rails.root}/db/fixtures/TAKIBI STAND L2.jpg"), 
@@ -103,9 +99,7 @@ Product.create!(
       weight: 3.7,
       brand: "MITARI WORKS ミタリワークス",
     },
-    {
-      id: 5,
-      name: "TAKIBI STAND M",
+    {      name: "TAKIBI STAND M",
       images: [open("#{Rails.root}/db/fixtures/TAKIBI STAND L1.jpg"), 
               open("#{Rails.root}/db/fixtures/TAKIBI STAND L2.jpg"), 
               open("#{Rails.root}/db/fixtures/TAKIBI STAND L3.jpg"), 
@@ -119,9 +113,7 @@ Product.create!(
       weight: 1.3,
       brand: "MITARI WORKS ミタリワークス",
     },
-    {
-      id: 6,
-      name: "TAKIBI STAND S",
+    {      name: "TAKIBI STAND S",
       images: [open("#{Rails.root}/db/fixtures/TAKIBI STAND L1.jpg"), 
               open("#{Rails.root}/db/fixtures/TAKIBI STAND L2.jpg"), 
               open("#{Rails.root}/db/fixtures/TAKIBI STAND L3.jpg"), 
@@ -135,9 +127,7 @@ Product.create!(
       weight: 0.6,
       brand: "MITARI WORKS ミタリワークス",
     },
-    {
-      id: 7,
-      name: "GURU GURU FIRE M",
+    {      name: "GURU GURU FIRE M",
       images: [open("#{Rails.root}/db/fixtures/GURU GURU FIRE M1.jpg"), 
               open("#{Rails.root}/db/fixtures/GURU GURU FIRE M2.jpg"), 
               open("#{Rails.root}/db/fixtures/GURU GURU FIRE M3.jpg"), 
@@ -150,9 +140,7 @@ Product.create!(
       weight: 7.2,
       brand: "TRIPATH PRODUCTS トリパスプロダクト",
     },
-    {
-      id: 8,
-      name: "GURU GURU FIRE S",
+    {      name: "GURU GURU FIRE S",
       images: [open("#{Rails.root}/db/fixtures/GURU GURU FIRE M1.jpg"), 
               open("#{Rails.root}/db/fixtures/GURU GURU FIRE M2.jpg"), 
               open("#{Rails.root}/db/fixtures/GURU GURU FIRE M3.jpg"), 
@@ -165,9 +153,7 @@ Product.create!(
       weight: 3.4,
       brand: "TRIPATH PRODUCTS トリパスプロダクト",
     },
-    {
-      id: 9,
-      name: "GURU GURU FIRE XS",
+    {      name: "GURU GURU FIRE XS",
       images: [open("#{Rails.root}/db/fixtures/GURU GURU FIRE M1.jpg"), 
               open("#{Rails.root}/db/fixtures/GURU GURU FIRE M2.jpg"), 
               open("#{Rails.root}/db/fixtures/GURU GURU FIRE M3.jpg"), 
@@ -181,7 +167,6 @@ Product.create!(
       brand: "TRIPATH PRODUCTS トリパスプロダクト",
     },
     {
-      id: 10,
       name: "ケンシュリ【黒皮鉄】",
       images: [open("#{Rails.root}/db/fixtures/ケンシュリ１.png"), 
               open("#{Rails.root}/db/fixtures/ケンシュリ２.jpg"), 
@@ -196,7 +181,6 @@ Product.create!(
       brand: "RobSnow",
     },
     {
-      id: 11,
       name: "ケンシュリ【ステンレス】",
       images: [open("#{Rails.root}/db/fixtures/ケンシュリ)【ステンレス】1.png"), 
               open("#{Rails.root}/db/fixtures/ケンシュリ)【ステンレス】2.jpg"), 
@@ -211,7 +195,6 @@ Product.create!(
       brand: "RobSnow",
     },
     {
-      id: 12,
       name: "ディアン",
       images: [open("#{Rails.root}/db/fixtures/ディアン1.png"), 
               open("#{Rails.root}/db/fixtures/ディアン2.jpg"), 
@@ -226,7 +209,6 @@ Product.create!(
       brand: "RobSnow",
     },
     {
-      id: 13,
       name: "ラバト",
       images: [open("#{Rails.root}/db/fixtures/ラバト1.jpg"), 
               open("#{Rails.root}/db/fixtures/ラバト2.jpg"), 
@@ -240,7 +222,6 @@ Product.create!(
       brand: "RobSnow",
     },
     {
-      id: 14,
       name: "マチャ",
       images: [open("#{Rails.root}/db/fixtures/マチャ1.png"), 
               open("#{Rails.root}/db/fixtures/マチャ2.jpg"), 
@@ -257,7 +238,6 @@ Product.create!(
       brand: "RobSnow",
     },
     {
-      id: 15,
       name: "タワーオブボンファイヤー",
       images: [open("#{Rails.root}/db/fixtures/タワーオブボンファイヤー1.jpg"), 
               open("#{Rails.root}/db/fixtures/タワーオブボンファイヤー2.jpg"), 
@@ -272,7 +252,6 @@ Product.create!(
       brand: "NATURETONES",
     },
     {
-      id: 16,
       name: "FRONTISTAR",
       images: [open("#{Rails.root}/db/fixtures/FRONTISTAR1.jpg"), 
               open("#{Rails.root}/db/fixtures/FRONTISTAR2.jpg"), 
@@ -287,7 +266,6 @@ Product.create!(
       brand: "",
     },
     {
-      id: 17,
       name: "焚き火台００１",
       images: [open("#{Rails.root}/db/fixtures/焚き火台００１1.jpg"), 
               open("#{Rails.root}/db/fixtures/焚き火台００１2.jpg"), 
@@ -301,7 +279,6 @@ Product.create!(
       brand: "2.1",
     },
     {
-      id: 18,
       name: "FIRE STAND ～灯篭～ Large",
       images: [open("#{Rails.root}/db/fixtures/FIRE STAND ～灯篭～ Large1.jpg"), 
               open("#{Rails.root}/db/fixtures/FIRE STAND ～灯篭～ Large2.jpg"), 
@@ -316,7 +293,6 @@ Product.create!(
       brand: "",
     },
     {
-      id: 19,
       name: "VULCAN バルカン",
       images: [open("#{Rails.root}/db/fixtures/VULCAN バルカン1.jpg"), 
               open("#{Rails.root}/db/fixtures/VULCAN バルカン2.jpg"), 
@@ -329,7 +305,6 @@ Product.create!(
       brand: "",
     },
     {
-      id: 20,
       name: "FIRE WHIRL",
       images: [open("#{Rails.root}/db/fixtures/FIRE WHIRL1.jpg"), 
               open("#{Rails.root}/db/fixtures/FIRE WHIRL2.jpg"), 
