@@ -1,4 +1,4 @@
-<% unless @product.reviews.present? %>
+<% if @product.reviews.count == 0 %>
   <p class="review_box text-left">まだレビューがありません</p>
 <% else %>
   <% reviews.each do |review| %>
