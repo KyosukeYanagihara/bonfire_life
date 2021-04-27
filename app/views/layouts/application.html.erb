@@ -26,6 +26,7 @@
           <%= link_to "レンタル履歴一覧", orders_path %>
           <%= link_to "お気に入り一覧", favorites_path %>
           <%= link_to "カート", my_cart_carts_path %>
+          <%= link_to "MYページ", user_path(current_user.id) %>
           <% if current_user.account.admin == true %>
             <%= link_to "商品登録", new_product_path %>
           <% end %>
