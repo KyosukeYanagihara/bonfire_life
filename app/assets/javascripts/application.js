@@ -15,6 +15,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require activestorage
+//= require turbolinks
 //= require jquery/dist/jquery.js
 //= require jquery
 //= require jquery_ujs
