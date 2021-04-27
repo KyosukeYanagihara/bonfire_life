@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
   root 'tops#index'
+  resources :users, only: %i[ show ]
   resources :orders do
     collection do
       post :confirm
