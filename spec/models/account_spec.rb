@@ -15,8 +15,16 @@ RSpec.describe "Accountモデル機能", type: :model do
         account1 = FactoryBot.build(:account1, user_id: user1.id, first_name_kana: "")
         expect(account1).not_to be_valid
       end
+      it 'first_name_kanaがカタカナ以外の場合' do
+        account1 = FactoryBot.build(:account1, user_id: user1.id, first_name_kana: "漢字")
+        expect(account1).not_to be_valid
+      end
       it 'last_name_kanaが空の場合' do
         account1 = FactoryBot.build(:account1, user_id: user1.id, last_name_kana: "")
+        expect(account1).not_to be_valid
+      end
+      it 'last_name_kanaがカタカナ以外の場合' do
+        account1 = FactoryBot.build(:account1, user_id: user1.id, last_name_kana: "漢字")
         expect(account1).not_to be_valid
       end
       it 'birthday空の場合' do
